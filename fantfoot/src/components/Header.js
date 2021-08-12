@@ -15,64 +15,67 @@ import {
   ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon, FilmIcon, UserGroupIcon, HandIcon } from '@heroicons/react/solid'
 
 const solutions = [
   {
-    name: 'Analytics',
+    name: 'QB Rankings',
     description: 'Get a better understanding of where your traffic is coming from.',
     href: '#',
     icon: ChartBarIcon,
   },
   {
-    name: 'Engagement',
+    name: 'RB Rankings',
     description: 'Speak directly to your customers in a more meaningful way.',
     href: '#',
     icon: CursorClickIcon,
   },
-  { name: 'Security', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
   {
-    name: 'Integrations',
+    name: 'WR Rankings',
+   description: "Your customers' data will be safe and secure.",
+   href: '#',
+   icon: HandIcon },
+  {
+    name: 'TE Rankings',
     description: "Connect with third-party tools that you're already using.",
     href: '#',
     icon: ViewGridIcon,
   },
   {
-    name: 'Automations',
+    name: 'Kicker Rankings',
     description: 'Build strategic funnels that will drive your customers to convert',
     href: '#',
     icon: RefreshIcon,
   },
-]
-const callsToAction = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
+  {
+    name: 'DEF Rankings',
+    description: 'Build strategic funnels that will drive your customers to convert',
+    href: '#',
+    icon: UserGroupIcon,
+  }
 ]
 const resources = [
   {
-    name: 'Help Center',
+    name: 'Full PPR',
     description: 'Get all of your questions answered in our forums or contact support.',
     href: '#',
-    icon: SupportIcon,
+    icon: FilmIcon,
   },
   {
-    name: 'Guides',
+    name: 'Half PPR',
     description: 'Learn how to maximize our platform to get the most out of it.',
     href: '#',
     icon: BookmarkAltIcon,
   },
   {
-    name: 'Events',
+    name: '2 QB',
     description: 'See what meet-ups and other events we might be planning near you.',
     href: '#',
     icon: CalendarIcon,
   },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
-]
-const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-  { id: 3, name: 'Improve your customer experience', href: '#' },
+  {
+    name: 'Dynasty',
+    description: '10 team dynasty league. With my lifelong high school friends.', href: '#', icon: ShieldCheckIcon },
 ]
 
 function classNames(...classes) {
@@ -87,11 +90,7 @@ export default function Header() {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
               <span className="sr-only">Workflow</span>
-              <img
-                className="h-8 w-auto sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt=""
-              />
+              <i className="fas fa-football-ball"></i>
             </a>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
@@ -110,7 +109,7 @@ export default function Header() {
                       'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                     )}
                   >
-                    <span>Solutions</span>
+                    <span>Rankings</span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? 'text-gray-600' : 'text-gray-400',
@@ -146,19 +145,6 @@ export default function Header() {
                             </a>
                           ))}
                         </div>
-                        <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                          {callsToAction.map((item) => (
-                            <div key={item.name} className="flow-root">
-                              <a
-                                href={item.href}
-                                className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
-                              >
-                                <item.icon className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                                <span className="ml-3">{item.name}</span>
-                              </a>
-                            </div>
-                          ))}
-                        </div>
                       </div>
                     </Popover.Panel>
                   </Transition>
@@ -170,7 +156,7 @@ export default function Header() {
               Videos
             </a>
             <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-              Docs
+              Articles
             </a>
 
             <Popover className="relative">
@@ -218,26 +204,6 @@ export default function Header() {
                             </a>
                           ))}
                         </div>
-                        <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                          <div>
-                            <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">Recent Posts</h3>
-                            <ul className="mt-4 space-y-4">
-                              {recentPosts.map((post) => (
-                                <li key={post.id} className="text-base truncate">
-                                  <a href={post.href} className="font-medium text-gray-900 hover:text-gray-700">
-                                    {post.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className="mt-5 text-sm">
-                            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                              {' '}
-                              View all posts <span aria-hidden="true">&rarr;</span>
-                            </a>
-                          </div>
-                        </div>
                       </div>
                     </Popover.Panel>
                   </Transition>
@@ -246,15 +212,6 @@ export default function Header() {
             </Popover>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-              Sign in
-            </a>
-            <a
-              href="#"
-              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-            >
-              Sign up
-            </a>
           </div>
         </div>
       </div>
